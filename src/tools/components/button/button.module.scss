@@ -1,0 +1,45 @@
+.btn{
+  --_b:var(--cs);
+  cursor: var(--mp);
+  display: inline-flex;
+  align-items: center;
+  gap: calc(2*var(--unit));
+  padding: calc(2*var(--unit)) calc(3*var(--unit));
+  min-height: calc(5.5*var(--unit));
+  font-weight: bold;
+  color: white;
+  border-radius: var(--unit);
+  border: 1px solid var(--_b);
+  background: none;
+  background-image: radial-gradient(var(--_b) 0%,var(--_b) 100%);
+  background-color: color-mix(in srgb, var(--_ibg) 72%, var(--_b) 28%);
+  overflow: hidden;
+  svg{
+    width: calc(3.5*var(--unit));
+    height: calc(3.5*var(--unit));
+    fill:white;
+  }
+}
+
+.btn.alter{
+  --_b:var(--cq);
+  color: black;
+  svg{
+    fill: black;
+  }
+}
+
+body[data-theme="light"]{
+  .btn{
+    color: black;
+    svg{
+      fill: black;
+    }
+  }
+  .btn.alter{
+    color: white;
+    svg{
+      fill: white;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.editer{
+  margin: calc(3*var(--unit)) 0 calc(3*var(--unit)) 0;
+}
+
+.textarea{
+  margin-bottom: calc(3*var(--unit));
+}
+
+.view{
+  display: block;
+  min-height: 140px;
+  margin-bottom: calc(3*var(--unit));
+}
+
+.btns{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: calc(2*var(--unit));
+  button[data-setmode]{
+    background: var(--ct)!important;
+    border:none;
+  }
+  >div:first-child{
+    display: inline-flex;
+    gap: calc(2*var(--unit));
+  }
+}

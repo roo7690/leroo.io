@@ -1,0 +1,133 @@
+.container{
+  display: flex;
+  border-radius: var(--unit);
+  max-height: none;
+  //>div{
+  //  
+  //  //height: calc(100% - 8*var(--unit) - .4px);
+  //  overflow: hidden;
+  //}
+  //@media (max-width:992px) {
+  //  //min-height: calc(50*var(--unit));
+  //}
+}
+
+.project{
+  --mp:url("/svg/mouse/pointer-dark.svg") 7 0,pointer;
+  cursor: var(--mp);
+  --cb: #00000049;
+  --fil: white;
+  --_ibg:#ffffff40;
+  --_ibgh:#ffffff20;
+  color: white;
+  overflow: hidden;
+  width: calc(100% - 8*var(--unit) - .4px);
+  >a:first-child{
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    >div:first-child{
+      width: 100%;
+      overflow: hidden;
+    }
+  }
+  .hashtag{
+    pointer-events: none;
+    display: flex;
+    width:100%;
+    justify-content: space-between;
+    align-items: end;
+    gap: var(--gap);
+    >div:first-child{
+      display: flow-root;
+      >div{
+        margin-bottom: calc(2*var(--unit));
+        margin-right: calc(2*var(--unit));
+      }
+    }
+    >a{
+      pointer-events: all;
+      margin-bottom: calc(2*var(--unit));
+    }
+  }
+  .description{
+    >h1{
+      font-display: block;
+    }
+  }
+  @media(min-width: 769px){
+    &.hoverable:hover{
+      .description{
+        top: 0;
+        translate: 0 0 !important;
+        >h1{
+          animation: para .7s var(--dec_final);
+        }
+        @keyframes para {
+          0%{
+            top: 0;
+          }
+          50%{
+            top: -1em;
+          }
+          100%{
+            top: 0;
+          }
+        }
+      }
+      .more{
+        top: 0;
+      }
+    }
+  }
+}
+
+.status{
+  padding-bottom: var(--unit);
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: calc(2*var(--unit));
+  color: var(--status);
+  --running: rgb(43, 232, 124);
+  --stopped: rgb(140, 52, 52);
+  --paused: rgb(198, 207, 70);
+  --dev: rgb(20, 35, 173);
+  >div:first-child{
+    width: var(--unit);
+    height: var(--unit);
+    border-radius: 50%;
+    background-color: var(--status);
+    box-shadow: 0 0 10px 2px var(--status);
+  }
+}
+
+.description{
+  position: relative;
+  @media (min-width: 769px) {
+    top: 100%;
+    translate: 0 calc(-100% - 7*var(--unit));
+    transition: all .2s var(--dec_final);
+  }
+  @media (max-width:768px) {
+    translate: 0 0 !important;
+  }
+  >h1{
+    position: relative;
+    top: 0;
+  }
+  >p{
+    width: 86%;
+    padding: calc(2*var(--unit)) 0;
+  }
+}
+
+.more{
+  @media (min-width:769px){
+    position: relative;
+    top: 100%;
+    transition: all .4s var(--dec_final);
+  }
+}

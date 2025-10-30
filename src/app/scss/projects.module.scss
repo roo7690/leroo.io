@@ -1,0 +1,32 @@
+.section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.projects{
+  margin-top: calc(2*var(--unit));
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  --gap:calc(4*var(--unit));
+  gap: var(--gap);
+  width:100%;
+  >*{
+    display: flex;
+  }
+  @media(max-width:1024px){
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    --gap: calc(2*var(--unit));
+    >*{
+      width: 100%;
+      max-width: calc(100*var(--unit));
+    }
+  }
+}
+
+.error{
+  grid-column: 1/13;
+  grid-row: 1/2;
+}

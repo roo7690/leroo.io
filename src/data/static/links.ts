@@ -1,0 +1,8 @@
+export const github='https://github.com/roo7690'
+export const discord='https://discord.gg/c2bcCW5z'
+export const twitter='https://twitter.com/roo7690'
+export const bsky='https://bsky.app/profile/leroo.io'
+export const linkedin='https://www.linkedin.com/in/roosevelt-sonfack/'
+export const engineering='https://www.youtube.com/watch?v=gP5xN5lw_7c'
+export const kurzgesagt='https://www.youtube.com/@kurzgesagt_fr'
+export const warzone='https://www.youtube.com/watch?v=0E44DClsX5Q'

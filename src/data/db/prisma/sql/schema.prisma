@@ -1,0 +1,19 @@
+generator client_sql {
+  provider      = "prisma-client-js"
+  output        = "."
+  binaryTargets = ["linux-musl-openssl-3.0.x"]
+}
+
+datasource db_sql {
+  provider = "postgresql"
+  url      = env("DB_SQL")
+}
+
+model users {
+  id        Int     @id(map: "id") @default(autoincrement())
+  username  String  @unique(map: "username") @db_sql.VarChar(14)
+  email     String  @default("") @db_sql.VarChar(254)
+  password  String  @default("") @db_sql.VarChar(254)
+  google_id String? @default("") @db_sql.VarChar(255)
+  github_id String? @default("") @db_sql.VarChar(255)
+}

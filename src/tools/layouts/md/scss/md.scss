@@ -1,0 +1,39 @@
+.z-index{
+  background-color: color-mix(in srgb, var(--cs) 49%, transparent 50%);
+  border: var(--bord);
+  border-radius: var(--unit);
+  line-height: 1.2;
+  padding: .14em .28em;
+}
+
+.section{
+  padding-block: calc(4*var(--unit));
+  border-top: var(--bord); 
+}
+
+*:not(h1,h2,h3,span){
+  line-height: 1.8;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th, td {
+  padding: var(--unit) calc(2*var(--unit));
+  border: var(--bord);
+}
+
+th {
+  background-color: color-mix(in srgb, var(--cs) 49%, transparent 50%);
+  font-weight: bold;
+}
+
+blockquote{
+  padding: var(--unit);
+  border: var(--bord);
+  border-left: var(--unit) solid var(--cs) !important;
+  background-color: var(--cb);
+}

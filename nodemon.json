@@ -1,0 +1,6 @@
+{
+  "watch": ["src/server","webpack.config.cjs","next.config.js"],
+  "ext": "js,jsx,ts,tsx,json",
+  "ignore": ["**/*.d.ts"],
+  "exec": "npx webpack --mode development && node dist/server/index.bundle.cjs"
+}

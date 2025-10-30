@@ -1,0 +1,19 @@
+.modal_layout{
+  cursor: var(--md);
+  position:fixed;
+  width: 100vw;
+  height: 100vh;
+  top:0;
+  left:0;
+  z-index:1;
+  background-color:var(--c_bgModal);
+  >:first-child{
+    position:relative;
+    top:var(--modal-top);
+    left:var(--modal-left);
+    translate: var(--modal-translate);
+    *[data-modal-close]{
+      cursor: var(--mp);
+    }
+  }
+}

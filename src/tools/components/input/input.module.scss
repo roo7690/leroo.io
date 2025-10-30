@@ -1,0 +1,32 @@
+.input{
+  >input{
+    height: fill;
+  }
+  >label{
+    transition: all .2s var(--dec_final);
+    position: absolute;
+    translate: calc(2*var(--unit)) calc(2*var(--unit));
+    font-size: var(--fs);
+    color: color-mix(in srgb, transparent 40%, var(--fil) 60%);
+    &.decal{
+      translate: calc(2*var(--unit)) 0;
+      font-size: calc(1.5*var(--unit));
+    }
+  }
+}
+
+.ic{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(2*var(--unit));
+  height: calc(7*var(--unit));
+  overflow: visible;
+  >input{
+    width:var(--unit);
+    caret-color: transparent;
+    &:focus{
+      border: 2px solid var(--cs2);
+    }
+  }
+}

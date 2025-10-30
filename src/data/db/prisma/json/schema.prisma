@@ -1,0 +1,163 @@
+generator client_json {
+  provider      = "prisma-client-js"
+  output        = "."
+  binaryTargets = ["linux-musl-openssl-3.0.x"]
+}
+
+datasource db_json {
+  provider = "mongodb"
+  url      = env("DB_JSON")
+}
+
+type BlogsAuts {
+  img   String
+  name  String
+  email String
+}
+
+type BlogsImg {
+  alt String
+  src String
+}
+
+type CommentsReactions {
+  reaction String
+  by       Int
+}
+
+type CommentsComments {
+  id        String                    @map("_id") @db_json.ObjectId
+  comment   String
+  date      DateTime                  @db_json.Date
+  id_user   Int
+  reactions CommentsReactions[]
+  response  CommentsCommentsResponse?
+}
+
+type CommentsCommentsResponse {
+  id String
+}
+
+type ProjectsMoreDescription {
+  children        Json
+  container_style Json
+}
+
+type ProjectsMoreDescriptionChildren {
+  children Json
+  props    Json?
+  type     String?
+}
+
+type ProjectsImage {
+  url      String
+  size     String
+  position String
+}
+
+type ProjectsStatus {
+  paused  Boolean
+  running Boolean
+  stopped Boolean
+}
+
+type ProjectsTitle {
+  color String
+  font  ProjectsTitleFont
+  value Json
+}
+
+type ProjectsTitleFont {
+  ff   String
+  fs   Int
+  fw   Int
+  link String
+}
+
+type JobsDate {
+  end   String
+  start String
+}
+
+type JobsMedia {
+  alt  String
+  link String
+  size String[]
+  src  String
+}
+
+model blogs {
+  id       String      @id @default(auto()) @map("_id") @db_json.ObjectId
+  actif    Boolean
+  auts     BlogsAuts[]
+  content  Json
+  date     DateTime    @db_json.Date
+  hashtags Int[]
+  img      BlogsImg
+  link     String
+  title    Json
+  visible  Boolean
+}
+
+model comments {
+  id           String             @id @default(auto()) @map("_id") @db_json.ObjectId
+  id_blog      String             @unique(map: "id_blog_1")
+  blog         String
+  comments     CommentsComments[]
+  nbr_comments Int
+}
+
+model hashtags {
+  id      String @id @default(auto()) @map("_id") @db_json.ObjectId
+  color   String
+  hashtag String
+  key     Int
+}
+
+model projects {
+  ordre           Int
+  id              String                   @id @default(auto()) @map("_id") @db_json.ObjectId
+  area            Int[]
+  blog            String
+  description     Json
+  hashtags        Int[]
+  image           ProjectsImage
+  link            String?
+  moreDescription ProjectsMoreDescription?
+  status          String
+  title           ProjectsTitle
+}
+
+model skills {
+  id         String  @id @default(auto()) @map("_id") @db_json.ObjectId
+  technology String?
+  domaine    Json?
+  fill       String?
+  id_domaine String
+  img        String?
+  svg        String?
+  exp        Int?
+  type       String
+  order      String
+}
+
+model jobs {
+  id          String    @id @default(auto()) @map("_id") @db_json.ObjectId
+  date        JobsDate
+  description Json
+  entreprise  String
+  location    Json
+  media       JobsMedia
+  ordre       Int
+  secteur     Json
+  title       Json
+}
+
+model testimonials {
+  id         String @id @default(auto()) @map("_id") @db_json.ObjectId
+  email      String
+  img        String
+  of         String
+  profession String
+  say        String
+}

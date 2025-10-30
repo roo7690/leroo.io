@@ -1,0 +1,50 @@
+.page{
+  h1{
+    display: inline-flex;
+  }
+  >section{
+    >p{
+      margin-block: calc(2*var(--unit));
+    }
+  }
+  >section:not(:last-child){
+    margin-bottom: calc(10*var(--unit));
+  }
+  >section:first-child{
+    button{
+      svg{
+        scale: .7;
+      }
+    }
+  }
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width:100%;
+  gap: calc(5*var(--unit));
+}
+
+.footer{
+  display: flex;
+  justify-content: center;
+  margin-top: calc(7*var(--unit));
+}
+
+.btn_load{
+  >svg{
+    display: none;
+  }
+  &.load{
+    >svg{
+      display: block;
+      animation: _rotate 2s var(--dec_final) infinite;
+      @keyframes _rotate {
+        0% {rotate: 0deg;}
+        100% {rotate: 360deg;}      
+      }
+    }
+  }
+}
